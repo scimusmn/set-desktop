@@ -1,6 +1,14 @@
 #!/usr/bin/env osascript
 
-set desktopImage to POSIX file "/Library/Desktop Pictures/Solid Colors/Solid Lavender.png"
-tell Application "Finder"
-  set desktop picture to desktopImage
-end tell
+# Look for arguments
+on run(arguments)
+
+  # Get a POSIX path to the file in the argument
+  set filename to POSIX file (first item of arguments)
+
+  # Set the desktop background
+  tell Application "Finder"
+    set desktop picture to filename
+  end tell
+
+end run
